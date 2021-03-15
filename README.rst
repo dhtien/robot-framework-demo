@@ -11,6 +11,11 @@ look like, and how to extend the framework with custom test libraries.
    :depth: 1
    :local:
 
+Install required on Mac for running
+====================================
+
+
+
 Downloading demo package
 ========================
 
