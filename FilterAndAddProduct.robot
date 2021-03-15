@@ -1,10 +1,10 @@
 *** Settings ***
-Documentation     Simple example using SeleniumLibrary.
+Documentation     Test product filter and add to card feature.
 Library           SeleniumLibrary
 
 *** Variables ***
 ${HOME_PAGE_URL}      https://www.powerbuy.co.th/en/
-${BROWSER}        FireFox
+${BROWSER}        Chrome
 ${TITLE}          \#1 Powerbuy© - ช้อปแบรนด์ดัง! สินค้าของแท้ 100% รับประกันการจัดส่ง
 ${PRODUCT_NAME_1}     TV UHD LED 2020 (55\",4K,Smart) 55UN7200PTF\.ATM
 ${PRODUCT_NAME_2}     TV HD LED (32\") 32LM550BPTA\.ATM
@@ -61,6 +61,7 @@ Click on product name
     [Arguments]     ${product_name}
     Wait Until Element Is Enabled   xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]        timeout=20s
     Wait Until Element Is Visible   xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]        timeout=20s
+    Wait Until Page Does Not Contain Element        //img[contains(@class,'lazyloaded') and @data-testid='img-loading']     timeout=20s
     Sleep    4s
     Click Element    xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]
 
