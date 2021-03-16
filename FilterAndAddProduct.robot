@@ -7,7 +7,7 @@ ${HOME_PAGE_URL}      https://www.powerbuy.co.th/en/
 ${BROWSER}        Chrome
 ${TITLE}          \#1 Powerbuy© - ช้อปแบรนด์ดัง! สินค้าของแท้ 100% รับประกันการจัดส่ง
 ${PRODUCT_NAME_1}     TV UHD LED 2020 (55\",4K,Smart) 55UN7200PTF\.ATM
-${PRODUCT_NAME_2}     TV HD LED (32\") 32LM550BPTA\.ATM
+${PRODUCT_NAME_2}     TV FHD LED 2020 (43",Smart) 43LN5600PTA
 
 *** Test Cases ***
 User can filter product with multiple filter and add to card
