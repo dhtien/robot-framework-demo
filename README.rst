@@ -4,8 +4,9 @@ Demo Web https://www.powerbuy.co.th/en/
 
 Project structure
 ====================================
-- Report will be generate to 'report' folder by default or to other folder if you enter --outputdir param when running test by terminal
-- You can open file 'report.html' in folder 'report' for more details
+- 'pages_object' folder: store steps for each pages
+- 'report' folder: store report files after running
+- 'tests' folder: store test cases
 
 Install required
 ====================================
