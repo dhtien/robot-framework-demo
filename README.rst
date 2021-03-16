@@ -1,11 +1,11 @@
 ====================
-Robot Framework Demo
+Demo Web https://www.powerbuy.co.th/en/
 ====================
 
 Install required for running on Mac
 ====================================
 
-- Install python 2.7
+- Install python 2.7 or higher
 - Install Chrome or FireFox
 - Run file setup.sh stored in project for setting required libraries
 
@@ -16,7 +16,7 @@ Running test on Mac
 - You can run test on FireFox by running file 'run_scirpt_firefox.sh' that stored in project
 - You can run test from terminal by using below example command on terminal
     + cd {directory of project}
-    + robot --variable BROWSER:Chrome --outputdir report /tests/FilterAndAddProduct.robot
+    + robot --variable BROWSER:Chrome --outputdir report tests/FilterAndAddProduct.robot
     + Note: You can change 'Chrome' parameter to 'FireFox' for running test on FireFox
 
 Generated results

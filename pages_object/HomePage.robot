@@ -9,9 +9,8 @@ ${BROWSER}        Chrome
 
 *** Keywords ***
 Open Browser To Home Page
-    Open Browser    None     ${BROWSER}
+    Open Browser    ${HOME_PAGE_URL}     ${BROWSER}
     Maximize Browser Window
-    Go To    ${HOME_PAGE_URL}
     Title Should Be    ${TITLE}
 
 
