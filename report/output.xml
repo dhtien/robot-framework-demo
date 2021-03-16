@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.7.10 on darwin)" generated="20210316 15:09:12.214" rpa="false" schemaversion="2">
+<suite id="s1" name="FilterAndAddProduct" source="/Volumes/External_SSD/workspace/AUTOMATION/robot-framework-example/tests/FilterAndAddProduct.robot">
+<test id="s1-t1" name="User can filter product with multiple filter and add to card">
+<kw name="Open Browser To Home Page" library="HomePage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HOME_PAGE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210316 15:09:12.430" level="INFO">Opening browser 'Chrome' to base url 'https://www.powerbuy.co.th/en/'.</msg>
+<status status="PASS" starttime="20210316 15:09:12.430" endtime="20210316 15:09:19.961"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210316 15:09:19.962" endtime="20210316 15:09:20.452"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20210316 15:09:20.464" level="INFO">Page title is '#1 Powerbuy© - ช้อปแบรนด์ดัง! สินค้าของแท้ 100% รับประกันการจัดส่ง'.</msg>
+<status status="PASS" starttime="20210316 15:09:20.452" endtime="20210316 15:09:20.464"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:12.429" endtime="20210316 15:09:20.464"/>
+</kw>
+<kw name="Enter Text For Searching" library="HomePage">
+<arg>TV</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://*[@id='txt-searchBox-input']</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:20.465" level="INFO">Typing text 'TV' into text field 'xpath://*[@id='txt-searchBox-input']'.</msg>
+<status status="PASS" starttime="20210316 15:09:20.465" endtime="20210316 15:09:20.678"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>txt-searchBox-input</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20210316 15:09:20.678" level="INFO">Sending key(s) ('ENTER',) to txt-searchBox-input element.</msg>
+<msg timestamp="20210316 15:09:21.528" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20210316 15:09:21.528" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20210316 15:09:20.678" endtime="20210316 15:09:21.921"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:09:21.921" endtime="20210316 15:09:21.940"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:20.465" endtime="20210316 15:09:21.940"/>
+</kw>
+<kw name="Select Filter With" library="HomePage">
+<arg>Screen Size Group (inches)</arg>
+<arg>44 - 55 inches</arg>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:09:21.941" endtime="20210316 15:09:24.945"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:24.945" endtime="20210316 15:09:24.967"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:24.967" level="INFO">Clicking element 'xpath://div[@title='Screen Size Group (inches)']//div[.//div[text()='44 - 55 inches'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]'.</msg>
+<status status="PASS" starttime="20210316 15:09:24.967" endtime="20210316 15:09:25.532"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:09:25.533" endtime="20210316 15:09:25.564"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:21.940" endtime="20210316 15:09:25.565"/>
+</kw>
+<kw name="Click on product name" library="HomePage">
+<arg>${PRODUCT_NAME_1}</arg>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:09:25.565" endtime="20210316 15:09:25.616"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:25.616" endtime="20210316 15:09:25.670"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:09:25.671" endtime="20210316 15:09:26.834"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210316 15:09:30.835" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20210316 15:09:26.834" endtime="20210316 15:09:30.835"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:30.836" level="INFO">Clicking element 'xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'TV UHD LED 2020 (55",4K,Smart) 55UN7200PTF.ATM')]'.</msg>
+<status status="PASS" starttime="20210316 15:09:30.835" endtime="20210316 15:09:31.171"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:25.565" endtime="20210316 15:09:31.171"/>
+</kw>
+<kw name="Click on button Add To Card" library="ProductDetailsPage">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://button[./span[text()='Add to Cart']]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:09:31.171" endtime="20210316 15:09:34.039"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://button[./span[text()='Add to Cart']]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:34.039" endtime="20210316 15:09:34.098"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[./span[text()='Add to Cart']]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:34.099" level="INFO">Clicking element 'xpath://button[./span[text()='Add to Cart']]'.</msg>
+<status status="PASS" starttime="20210316 15:09:34.099" endtime="20210316 15:09:34.265"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:31.171" endtime="20210316 15:09:34.266"/>
+</kw>
+<kw name="Verify message added product successfully shows" library="ProductDetailsPage">
+<arg>${PRODUCT_NAME_1}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@type='success' and .//span[text()='You added ${product_name} to your shopping cart.']]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:34.267" endtime="20210316 15:09:38.718"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:34.266" endtime="20210316 15:09:38.718"/>
+</kw>
+<kw name="Go back to previous page" library="BasePage">
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20210316 15:09:38.719" endtime="20210316 15:09:41.321"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:09:41.321" endtime="20210316 15:09:41.350"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:38.718" endtime="20210316 15:09:41.351"/>
+</kw>
+<kw name="Unselect Filter With" library="HomePage">
+<arg>Screen Size Group (inches)</arg>
+<arg>44 - 55 inches</arg>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:09:41.351" endtime="20210316 15:09:41.404"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:41.404" endtime="20210316 15:09:41.435"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:41.435" level="INFO">Clicking element 'xpath://div[@title='Screen Size Group (inches)']//div[.//div[text()='44 - 55 inches'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]'.</msg>
+<status status="PASS" starttime="20210316 15:09:41.435" endtime="20210316 15:09:42.549"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:09:42.549" endtime="20210316 15:09:42.568"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:41.351" endtime="20210316 15:09:42.568"/>
+</kw>
+<kw name="Select Filter With" library="HomePage">
+<arg>Screen Size Group (inches)</arg>
+<arg>32 - 43 inches</arg>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:09:42.569" endtime="20210316 15:09:42.685"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:42.685" endtime="20210316 15:09:42.715"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[@title='${filter_group}']//div[.//div[text()='${value}'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:42.716" level="INFO">Clicking element 'xpath://div[@title='Screen Size Group (inches)']//div[.//div[text()='32 - 43 inches'] and contains(@class,'Row')]//div[contains(@class,'Checkbox')]'.</msg>
+<status status="PASS" starttime="20210316 15:09:42.715" endtime="20210316 15:09:43.190"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:09:43.190" endtime="20210316 15:09:46.618"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:42.569" endtime="20210316 15:09:46.619"/>
+</kw>
+<kw name="Click on product name" library="HomePage">
+<arg>${PRODUCT_NAME_2}</arg>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:09:46.619" endtime="20210316 15:09:46.711"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:46.711" endtime="20210316 15:09:46.729"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:09:46.729" endtime="20210316 15:09:46.740"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210316 15:09:50.743" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20210316 15:09:46.740" endtime="20210316 15:09:50.743"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'${product_name}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:50.743" level="INFO">Clicking element 'xpath://div[contains(@id,'productGrid')]//span[contains(@id,'product') and contains(text(),'TV FHD LED 2020 (43",Smart) 43LN5600PTA')]'.</msg>
+<status status="PASS" starttime="20210316 15:09:50.743" endtime="20210316 15:09:51.333"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:46.619" endtime="20210316 15:09:51.334"/>
+</kw>
+<kw name="Click on button Add To Card" library="ProductDetailsPage">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://button[./span[text()='Add to Cart']]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:09:51.334" endtime="20210316 15:09:53.553"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://button[./span[text()='Add to Cart']]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:53.553" endtime="20210316 15:09:53.569"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[./span[text()='Add to Cart']]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:09:53.569" level="INFO">Clicking element 'xpath://button[./span[text()='Add to Cart']]'.</msg>
+<status status="PASS" starttime="20210316 15:09:53.569" endtime="20210316 15:09:53.634"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:51.334" endtime="20210316 15:09:53.634"/>
+</kw>
+<kw name="Verify message added product successfully shows" library="ProductDetailsPage">
+<arg>${PRODUCT_NAME_2}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[@type='success' and .//span[text()='You added ${product_name} to your shopping cart.']]</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:09:53.635" endtime="20210316 15:10:01.031"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:53.634" endtime="20210316 15:10:01.031"/>
+</kw>
+<kw name="Press on button View Card" library="ProductDetailsPage">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>xpath://button[text()='VIEW CART']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20210316 15:10:01.032" endtime="20210316 15:10:01.094"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://button[text()='VIEW CART']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:10:01.094" endtime="20210316 15:10:01.113"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://button[text()='VIEW CART']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210316 15:10:01.114" level="INFO">Clicking element 'xpath://button[text()='VIEW CART']'.</msg>
+<status status="PASS" starttime="20210316 15:10:01.114" endtime="20210316 15:10:02.349"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="SeleniumLibrary">
+<arg>//img[contains(@class,'lazyloaded') and @data-testid='img-loading']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" starttime="20210316 15:10:02.350" endtime="20210316 15:10:02.381"/>
+</kw>
+<status status="PASS" starttime="20210316 15:10:01.032" endtime="20210316 15:10:02.381"/>
+</kw>
+<kw name="Verify all products are added to card" library="ViewCardPage">
+<arg>${PRODUCT_NAME_1}</arg>
+<arg>${PRODUCT_NAME_2}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(@class,'CartItems') and @data-product-name='${product_name}']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:10:02.382" endtime="20210316 15:10:03.198"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(@class,'CartItems') and @data-product-name='${product_name}']</arg>
+<arg>timeout=20s</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210316 15:10:03.233" level="INFO">Element 'xpath://div[contains(@class,'CartItems') and @data-product-name='TV UHD LED 2020 (55",4K,Smart) 55UN7200PTF.ATM']' is displayed.</msg>
+<status status="PASS" starttime="20210316 15:10:03.198" endtime="20210316 15:10:03.233"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(@class,'CartItems') and @data-product-name='${product_name_2}']</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210316 15:10:03.234" endtime="20210316 15:10:03.259"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>xpath://div[contains(@class,'CartItems') and @data-product-name='${product_name_2}']</arg>
+<arg>timeout=20s</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210316 15:10:03.271" level="INFO">Element 'xpath://div[contains(@class,'CartItems') and @data-product-name='TV FHD LED 2020 (43",Smart) 43LN5600PTA']' is displayed.</msg>
+<status status="PASS" starttime="20210316 15:10:03.259" endtime="20210316 15:10:03.271"/>
+</kw>
+<status status="PASS" starttime="20210316 15:10:02.381" endtime="20210316 15:10:03.271"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210316 15:10:03.272" endtime="20210316 15:10:03.459"/>
+</kw>
+<status status="PASS" starttime="20210316 15:09:12.429" endtime="20210316 15:10:03.459"/>
+</test>
+<doc>Test product filter and add to card feature.</doc>
+<status status="PASS" starttime="20210316 15:09:12.215" endtime="20210316 15:10:03.460"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="FilterAndAddProduct">FilterAndAddProduct</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
