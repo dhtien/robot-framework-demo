@@ -13,6 +13,7 @@ Install required
 
 - Install Python 2.7 or higher and setup Python environment
 - Install Chrome or FireFox
+- On Window: Download chromedriver and geckodriver and set to path
 - Run file setup.sh stored in project for setting required libraries
 
 Running test
