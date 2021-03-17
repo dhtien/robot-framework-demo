@@ -19,8 +19,8 @@ Install required
 Running test
 ====================================
 
-- You can run test on Headless Chrome by running file 'run_scirpt_chrome.sh' that stored in project
-- You can run test on FireFox by running file 'run_scirpt_firefox.sh' that stored in project
+- You can run test on Headless Chrome by running file 'run_script_chrome.sh' that stored in project
+- You can run test on FireFox by running file 'run_script_firefox.sh' that stored in project
 - You can run test from terminal by using below example command on terminal
     + cd {directory of project}
     + robot --variable BROWSER:Chrome --outputdir report tests/FilterAndAddProduct.robot
