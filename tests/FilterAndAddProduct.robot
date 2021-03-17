@@ -1,10 +1,12 @@
 *** Settings ***
+Test Teardown   Close Browser
 Documentation     Test product filter and add to card feature.
 Library           SeleniumLibrary
 Resource          ../pages_object/BasePage.robot
 Resource          ../pages_object/HomePage.robot
 Resource          ../pages_object/ProductDetailsPage.robot
 Resource          ../pages_object/ViewCardPage.robot
+
 
 *** Variables ***
 ${PRODUCT_NAME_1}     TV UHD LED 2020 (55\",4K,Smart) 55UN7200PTF\.ATM
@@ -26,4 +28,3 @@ User can filter product with multiple filter and add to card
     Verify message added product successfully shows     ${PRODUCT_NAME_2}
     Press on button View Card
     Verify all products are added to card       ${PRODUCT_NAME_1}       ${PRODUCT_NAME_2}
-    [Teardown]    Close Browser
